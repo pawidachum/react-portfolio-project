@@ -4,26 +4,25 @@ import { FaPhone, FaEnvelope } from "react-icons/fa6";
 
 function Contact() {
   return (
-    <div className={styles.contact_wrapper}>
+    <div className={styles.contact_wrapper} id="contact">
       <div className={styles.contact_con}>
         <div className={styles.contact_info}>
           <h3>Get in touch</h3>
           <p className={styles.contact_desc}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga eius
-            eligendi in laboriosam delectus ipsum inventore alias dolorem
-            ducimus aliquid.
+          Let's work together! Whether you have a project in mind or just want to chat about opportunities, I'm always excited to connect with fellow developers and potential collaborators.
           </p>
           <p className={styles.contact_address}>
-            123 Main Street <br />
-            Bangkok, Thailand
+            112/283 Passorn Pride <br />
+            Bang Kaew, Bang Phli <br />
+            Samutprakan, Thailand
           </p>
-          <p>
+          <p style={{ display: "flex", gap: "1rem" }}>
             <FaPhone />
-            (+66) 98 555 1234
+            (+66) 63 545 5516
           </p>
-          <p>
+          <p style={{ display: "flex", gap: "1rem" }}>
             <FaEnvelope />
-            support@site.com
+            pawida.may@gmail.com
           </p>
         </div>
         <div className={styles.contact_form}>
@@ -42,7 +41,7 @@ function Contact() {
             <input type="email" id="email address" placeholder="eg. johndoe@gmail.com" />
             <label htmlFor="message">Your message</label>
             <textarea name="text area" id="" cols="30" rows="10" placeholder="Type here"></textarea>
-            <button type="submit">Submit</button>
+            <button type="submit" >Submit</button>
           </form>
         </div>
       </div>

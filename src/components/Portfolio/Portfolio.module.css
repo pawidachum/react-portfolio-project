@@ -1,6 +1,6 @@
 .port_con {
     max-width: 1170px;
-    height: 900px;
+    height: auto;
     margin: 0 auto;
     overflow: hidden;
 
@@ -9,17 +9,19 @@
         margin-top: 45px;
         font-size: 32px;
         font-weight: bold;
+        color: #0D47A1;
     }
     & .port_list {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         justify-items: center;
-
+        gap: 20px;
+        padding: 20px;
         & .port_item {
             margin-top: 60px;
 
             & img {
-                width: 300px;
+                width: 100%;
                 height: 300px;
                 border-radius: 20px;
                 object-fit: cover;
@@ -29,12 +31,13 @@
                 font-size: 16px;
                 font-weight: bold;
                 margin: 10px 0;
+                color: #0D47A1;
             }
         }
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1180px) {
     .port_con {
         height: auto;
         margin: 30px;

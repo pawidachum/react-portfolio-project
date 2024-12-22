@@ -1,23 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
 import Skills from './components/Skills/Skills'
-import Services from './components/Services/Services'
+import JobExperience from './components/JobExperience/JobExperience'
 import Portfolio from './components/Portfolio/Portfolio'
-import Number from './components/Number/Number'
-import Testimonials from './components/Testimonials/Testimonials'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 import AnimatedCursor from 'react-animated-cursor'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div className="app-container"> 
+    <div className='content-container'>
     <AnimatedCursor
       innerSize={8}
       outerSize={8}
@@ -45,13 +40,14 @@ function App() {
       <Navbar />
       <Hero />
       <Skills />
-      <Services />
+      <JobExperience />
       <Portfolio />
-      <Number />
-      <Testimonials />
       <Contact />
       <Footer />
-    </>
+
+    </div>
+
+    </div>
   )
 }
 

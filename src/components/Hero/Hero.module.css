@@ -1,5 +1,5 @@
 .hero_wrapper {
-  height: 500px;
+  height: auto;
   overflow: hidden;
 
   & .container {
@@ -10,7 +10,8 @@
   & .hero_con {
     display: flex;
     justify-content: space-between;
-    margin-top: 115px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 
     & .text_1 {
       font-size: 32px;
@@ -19,7 +20,7 @@
     & .text_2 {
       font-size: 64px;
       font-weight: bold;
-      color: #0085ff;
+      color: #0D47A1;
     }
 
     & .text_3 {
@@ -43,7 +44,7 @@
         & svg {
           width: 32px;
           height: 32px;
-          color: #333;
+          color: #0D47A1;
         }
       }
     }
@@ -52,10 +53,10 @@
       width: 300px;
       height: 300px;
       border-radius: 100%;
-      background-image: url("https://images.unsplash.com/photo-1615109398623-88346a601842?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fG1hbnxlbnwwfHwwfHx8MA%3D%3D");
+      background-image: url("./images/pawida.jpeg");
       background-size: cover;
       background-position: center;
-      margin-right: 120px;
+      margin-right: 80px;
     }
   }
 }
@@ -74,4 +75,23 @@
       }
     }
   }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1180px) {
+  .hero_wrapper {
+    & .hero_con {
+      flex-direction: row;
+      padding: 20px;
+
+      & .hero_info {
+        width: 100%;
+      }
+      
+      & .hero_img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+  
 }

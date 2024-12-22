@@ -1,6 +1,6 @@
 .contact_wrapper {
     height: 500px;
-    background-color: #0085FF;
+    background-color: #0D47A1;
     color: #fff;
     overflow: hidden;
 
@@ -78,7 +78,7 @@
                 transition: 0.3s;
 
                 &:hover {
-                    background-color: #0085FF;
+                    background-color: #2196F3;
                     color: #fff;
                     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
                 }
@@ -87,7 +87,7 @@
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1180px) {
     .contact_wrapper {
        height: auto;
 
@@ -111,3 +111,4 @@
        }
     }
 }
+
