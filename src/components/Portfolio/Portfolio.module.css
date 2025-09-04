@@ -1,59 +1,149 @@
-.port_con {
-    max-width: 1170px;
-    height: auto;
-    margin: 0 auto;
-    overflow: hidden;
-
-    & .port_title {
-        text-align: center;
-        margin-top: 45px;
-        font-size: 32px;
-        font-weight: bold;
-        color: #0D47A1;
-    }
-    & .port_list {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        justify-items: center;
-        gap: 20px;
-        padding: 20px;
-        & .port_item {
-            margin-top: 60px;
-
-            & img {
-                width: 100%;
-                height: 300px;
-                border-radius: 20px;
-                object-fit: cover;
-            }
-
-            & p {
-                font-size: 16px;
-                font-weight: bold;
-                margin: 10px 0;
-                color: #0D47A1;
-            }
-        }
-    }
+:root {
+  --bg-light: #f8f9fa;
+  --text-dark: #34495e;
+  --accent-color: #3498db;
+  --card-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.08);
 }
 
-@media screen and (max-width: 1180px) {
-    .port_con {
-        height: auto;
-        margin: 30px;
+.portfolio_section {
+  background-color: var(--bg-light);
+  padding: 6rem 0;
+}
 
-        & .port_list {
-            grid-template-columns: 1fr;
-            padding: 20px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
 
-            & .port_item {
-                width: 100%;
+.section_title {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4rem;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
 
-                & img {
-                    width: 100%;
-                    
-                }
-            }
-        }
-    }
+.section_title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+.project_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  justify-content: center;
+}
+
+.project_card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.project_card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.image_container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.image_container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project_card:hover .image_container img {
+  transform: scale(1.1);
+}
+
+.card_content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.project_name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 0.5rem 0;
+}
+
+.project_description {
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: auto;
+}
+
+.links a {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--text-dark);
+  transform: translateY(-2px);
+}
+.portfolio_wrapper {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.portfolio_content {
+  flex: 3;
+}
+
+.git_history_sidebar {
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .portfolio_wrapper {
+    flex-direction: column;
+  }
 }

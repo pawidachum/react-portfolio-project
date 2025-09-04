@@ -1,60 +1,57 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
-import { FaBars } from "react-icons/fa6";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const [isToggled, setToggled] = useState(false);  
+  const handleToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-  function handleToggle () {
-    setToggled(!isToggled) // false + false = true
-  }
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isMenuOpen]);
 
   return (
-    <nav>
+    <nav className={styles.navbar}>
       <div className={styles.container}>
-        <div className={styles.nav_con}>
-          <div className={styles.logo}>
-            <a href="#">JD PORT</a>
-          </div>
-
-            <ul>
-              <li>
-                <a href="#skills">Skils</a>
-              </li>
-              <li>
-                <a href="#portfolio">Portfolio</a>
-              </li>
-              <li>
-                <a href="#contact">Contact</a>
-              </li>
-            </ul>
-            
-          <div className={styles.button}>
-            <a href="#contact">Hire Me</a>
-          </div>
+        <div className={styles.logo}>
+          <a href="#">JD PORT</a>
         </div>
-        
-        {/* Mobile Menu */}
-        <FaBars className={styles.bars} onClick={handleToggle} />
-        {isToggled ? (
-          <>
-        <ul className={styles.mobile_menu}>
-              <li>
-                <a href="#">Skils</a>
-              </li>
-              <li>
-                <a href="#">Portfolio</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
-            </ul>
-            <div className={styles.mobile_button}>
-              <a href="">Hire Me</a>
-            </div>
-          </>
-        ) : null }
+
+        <button className={styles.hamburger} onClick={handleToggle} aria-label="Toggle navigation menu">
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        <ul className={`${styles.navLinks} ${isMenuOpen ? styles.open : ""}`}>
+          <li>
+            <a href="#skills" onClick={closeMenu}>Skills</a>
+          </li>
+          <li>
+            <a href="#portfolio" onClick={closeMenu}>Portfolio</a>
+          </li>
+          <li>
+            <a href="#contact" onClick={closeMenu}>Contact</a>
+          </li>
+          <li className={styles.navButton}>
+            <a href="#contact" onClick={closeMenu}>Hire Me</a>
+          </li>
+        </ul>
       </div>
     </nav>
   );

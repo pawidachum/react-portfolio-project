@@ -1,6 +1,5 @@
-import React from "react";
 import styles from "./Hero.module.css";
-import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
 import Tilt from "react-parallax-tilt";
 
@@ -8,19 +7,26 @@ function Hero() {
   return (
     <div className={styles.hero_wrapper}>
       <div className={styles.container}>
-        <div className={styles.hero_con}>
+        <div className={styles.hero_content}>
           <div className={styles.hero_info}>
-            <p className={styles.text_1}>Hi, it’s me</p>
-            <h3 className={styles.text_2}>Pawida Chumpurat</h3>
-            <p className={styles.text_3}>
-              <span style={{ marginRight: "10px" }}> I’m a</span>
+            <p className={styles.greeting}>Hello, I'm</p>
+            <h1 className={styles.name}>Pawida Chumpurat</h1>
+            <h2 className={styles.jobTitle}>
+              <span className={styles.jobPrefix}>I'm a</span>
               <TypeAnimation
-                sequence={["Front-end Developer", 1000, "Web Developer", 1000, "Full-stack Developer", 1000]}
+                sequence={[
+                  "Front-end Developer",
+                  1500,
+                  "Web Developer",
+                  1500,
+                  "Full-stack Developer",
+                  1500,
+                ]}
                 speed={50}
                 repeat={Infinity}
               />
-            </p>
-            <p className={styles.text_4}>
+            </h2>
+            <p className={styles.bio}>
               I am a full-stack developer with a background in microbiology,
               bringing a unique blend of analytical skills and technical
               expertise to software development. After spending as a laboratory
@@ -28,36 +34,36 @@ function Hero() {
               tech world. My curiosity for programming grew, leading me to
               complete various bootcamps, including a full-time Software
               Developer Bootcamp at TechUp, where I gained hands-on experience
-              with modern technologies. <br/> Through my recent roles, I have
+              with modern technologies. <br /> Through my recent roles, I have
               sharpened my skills in front-end and back-end development, with a
               focus on using technologies like Next.js, TypeScript, Node.js, and
               Firebase. I also implemented innovative features such as AI-driven
               content generation and system roles for classroom management, all
               while collaborating within Scrum teams to deliver high-quality web
-              applications. <br/> With a solid foundation in both science and
+              applications. <br /> With a solid foundation in both science and
               programming, I am always eager to learn and tackle new challenges
               in software development.
             </p>
-            <ul className={styles.hero_social}>
+            <ul className={styles.social_links}>
               <li>
-                <a href="https://github.com/pawidachum">
+                <a href="https://github.com/pawidachum" aria-label="GitHub profile">
                   <FaGithub />
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/feed/">
+                <a href="https://www.linkedin.com/feed/" aria-label="LinkedIn profile">
                   <FaLinkedin />
                 </a>
               </li>
               <li>
-                <a href="https://www.facebook.com/">
-                  <FaFacebook />
+                <a href="mailto:your.email@example.com" aria-label="Email me">
+                  <FaEnvelope />
                 </a>
               </li>
             </ul>
           </div>
-          <Tilt scale={1.2} transitionSpeed={2500} tillReverse={true}>
-            <div className={styles.hero_img}></div>
+          <Tilt tiltReverse={true} className={styles.tiltWrapper}>
+            <div className={styles.hero_image}></div>
           </Tilt>
         </div>
       </div>

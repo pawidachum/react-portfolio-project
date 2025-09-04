@@ -1,35 +1,47 @@
-import React from 'react'
-import styles from './JobExperience.module.css'
-import { FaCode } from 'react-icons/fa6'
+import styles from './JobExperience.module.css';
+import { FaCode, FaLaptopCode, FaDesktop } from 'react-icons/fa6';
 
 function JobExperience() {
-  return (
-    <div className={styles.services_con}>
-        <h3 className={styles.services_title}>My Job Experience</h3>
-        <div className={styles.services_list}>
-        <div className={styles.services_item}>
-            <FaCode />
-            <h4>Web Frontend Developer</h4>
-            <h3>Neo Link</h3>  
-            <p>Translated Figma designs into responsive web applications and built feature by using Angular</p> 
-        </div>
-        <div className={styles.services_item}>
-            <FaCode/>
-            <h4>Web Full-stack Developer</h4>
-            <h3>Reading Advantage</h3>
-            <p>Built English learning platform with Next.js and TypeScript</p>
-        </div>
-        <div className={styles.services_item}>
-            <FaCode />
-            <h4>Web Full-stack Developer</h4>
-            <h3>Nano Vip Car</h3>
-            <p>Designed complete UI/UX system using Figma and built web application by using Nextjs</p>
-        </div>
+  const experiences = [
+    {
+      title: "Web Frontend Developer",
+      company: "Neo Link",
+      description: "Translated Figma designs into responsive web applications and built features using Angular.",
+      icon: <FaLaptopCode />,
+    },
+    {
+      title: "Web Full-stack Developer",
+      company: "Reading Advantage",
+      description: "Built an English learning platform with Next.js and TypeScript, handling both front-end and back-end logic.",
+      icon: <FaCode />,
+    },
+    {
+      title: "Web Full-stack Developer",
+      company: "Nano Vip Car",
+      description: "Designed a complete UI/UX system using Figma and developed a robust web application using Next.js.",
+      icon: <FaDesktop />,
+    },
+  ];
 
+  return (
+    <section className={styles.job_experience_section} id="experience">
+      <div className={styles.container}>
+        <h2 className={styles.section_title}>My Job Experience</h2>
+        <div className={styles.experience_grid}>
+          {experiences.map((item, index) => (
+            <div key={index} className={styles.experience_card}>
+              <div className={styles.icon_wrapper}>
+                {item.icon}
+              </div>
+              <h4 className={styles.job_title}>{item.title}</h4>
+              <h3 className={styles.company}>{item.company}</h3>
+              <p className={styles.description}>{item.description}</p>
+            </div>
+          ))}
         </div>
-      
-    </div>
-  )
+      </div>
+    </section>
+  );
 }
 
-export default JobExperience
+export default JobExperience;

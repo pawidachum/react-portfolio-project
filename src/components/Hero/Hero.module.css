@@ -1,97 +1,133 @@
+:root {
+  --primary-bg: #f8f9fa;
+  --secondary-bg: #2c3e50;
+  --text-dark: #34495e;
+  --text-light: #ecf0f1;
+  --accent-color: #3498db;
+  --accent-hover: #2980b9;
+}
+
 .hero_wrapper {
-  height: auto;
-  overflow: hidden;
-
-  & .container {
-    max-width: 1170px;
-    margin: 0 auto;
-  }
-
-  & .hero_con {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
-    margin-bottom: 50px;
-
-    & .text_1 {
-      font-size: 32px;
-    }
-
-    & .text_2 {
-      font-size: 64px;
-      font-weight: bold;
-      color: #0D47A1;
-    }
-
-    & .text_3 {
-      font-size: 32px;
-    }
-
-    & .text_4 {
-      font-size: 16px;
-      margin-top: 25px;
-    }
-
-    & .hero_social {
-      display: flex;
-      list-style: none;
-      margin-top: 25px;
-
-      & li {
-        margin-right: 10px;
-        cursor: pointer;
-
-        & svg {
-          width: 32px;
-          height: 32px;
-          color: #0D47A1;
-        }
-      }
-    }
-
-    & .hero_img {
-      width: 300px;
-      height: 300px;
-      border-radius: 100%;
-      background-image: url("./images/pawida.jpeg");
-      background-size: cover;
-      background-position: center;
-      margin-right: 80px;
-    }
-  }
+  background: linear-gradient(135deg, var(--primary-bg) 0%, #e0e7ee 100%);
+  color: var(--text-dark);
+  padding: 8rem 0;
 }
 
-@media screen and (max-width: 480px) {
-  .hero_wrapper {
-    height: auto;
-
-    & .hero_con {
-      flex-direction: column;
-      margin: 50px, 0;
-      padding: 20px;
-
-      & .hero_info, & .hero_img {
-        width: 100%;
-      }
-    }
-  }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-@media screen and (min-width: 481px) and (max-width: 1180px) {
-  .hero_wrapper {
-    & .hero_con {
-      flex-direction: row;
-      padding: 20px;
+.hero_content {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
 
-      & .hero_info {
-        width: 100%;
-      }
-      
-      & .hero_img {
-        width: 150px;
-        height: 150px;
-      }
-    }
+.hero_info {
+  flex: 1 1 550px;
+  max-width: 600px;
+}
+
+.greeting {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.name {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--secondary-bg);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.jobTitle {
+  font-family: "Roboto", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 500;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+}
+
+.jobPrefix {
+  margin-right: 0.75rem;
+  color: var(--text-dark);
+}
+
+.bio {
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.social_links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social_links a {
+  color: var(--text-dark);
+  font-size: 2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social_links a:hover {
+  color: var(--accent-color);
+  transform: translateY(-5px);
+}
+
+.tiltWrapper {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero_image {
+  width: clamp(250px, 40vw, 400px);
+  height: clamp(250px, 40vw, 400px);
+  border-radius: 50%;
+  background-image: url("./images/pawida.jpeg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 5px solid var(--text-light);
+  transition: box-shadow 0.3s ease;
+}
+
+.hero_image:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero_content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
   }
-  
+
+  .hero_info {
+    order: 2;
+    padding: 0 1rem;
+  }
+
+  .tiltWrapper {
+    order: 1;
+  }
+
+  .social_links {
+    justify-content: center;
+  }
 }
